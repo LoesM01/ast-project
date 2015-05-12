@@ -38,6 +38,11 @@
   background-color: blue;
 }
 
+.board-game .cell.cell-is-off.cell-is-checked{
+  background: url(http://media.giphy.com/media/YABjm0asCj8Wc/giphy.gif);
+  background-size: 100% 100%;
+  background-color: blue;
+}
 
 .board-control .cell.cell-is-on {
   background: url(http://upload.wikimedia.org/wikipedia/commons/4/48/Herardic_ship.svg);
