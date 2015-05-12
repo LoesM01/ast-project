@@ -2,6 +2,7 @@ import R from 'ramda';
 
 class Game {
 
+
   createBoard(gridSize){
     let boardSize = gridSize * gridSize;
     let boardMaker = R.mapIndexed(({value, checked}, id) => {
@@ -21,10 +22,11 @@ class Game {
   checkCell(index, board){
     let message = board[index].value === 'on' ? 'hit' : 'miss';
     board[index].checked = true;
-    let gameEnded = this.isOver(board);
+    let gameEnded = this.isOver(board) || this.maxReached(board);
     if(gameEnded){
       alert('its over: challenger won!');
     }
+    
 
     return board;
   }
@@ -38,6 +40,19 @@ class Game {
     });
     return !amount;
   };
+
+ maxReached(board){
+  console.log ('test')
+    let amount = 0;
+    board.forEach((cell) => {
+      if(cell.checked){
+        amount += 1;
+      }
+    });
+    console.log ('test2'+amount == 4)
+    return amount >= 4;
+  };
+
 
   initializer(){
     return {
