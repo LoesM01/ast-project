@@ -7,7 +7,7 @@ class Interface extends React.Component {
 
   constructor(props){
     super(props);
-    this.game = new Game();
+    this.game = new Game(this);
     let { gridSize } = this.props;
     let { started, board } = this.game.createBoard(this.props.gridSize);
     this.state = { board, started, gridSize }
@@ -36,7 +36,7 @@ class Interface extends React.Component {
       <section className="game">
         { !started && <Board boardType="control" handleClick={ this.toggleState.bind(this) } board={ board }></Board> }
         { started && <Board boardType="game" handleClick={ this.checkCell.bind(this) } board={ board }></Board> }
-
+        
         <button disabled={ started } onClick={ this.startGame.bind(this) }>Start Game</button>
       </section>
     )

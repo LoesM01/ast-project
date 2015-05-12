@@ -2,7 +2,6 @@ import R from 'ramda';
 
 class Game {
 
-
   createBoard(gridSize){
     let boardSize = gridSize * gridSize;
     let boardMaker = R.mapIndexed(({value, checked}, id) => {
@@ -24,6 +23,7 @@ class Game {
     board[index].checked = true;
     let gameEnded = this.isOver(board) || this.maxReached(board);
     if(gameEnded){
+      this.myInterface.setState({"gameEnded":true});
       alert('its over: challenger won!');
     }
     
